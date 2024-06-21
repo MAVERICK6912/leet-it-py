@@ -121,9 +121,9 @@ class Solution:
         n,m=len(s),len(p)
         prev,curr=[False]*(m+1),[False]*(m+1)        
         # empty string and empty pattern always match, hence:
+        prev[0]=True
         # initial conditions
         # pattern is empty but string is not
-        prev[0]=True
         curr[0]=False
         # string is empty but pattern is not
         for i in range(1,m+1):
