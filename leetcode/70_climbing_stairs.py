@@ -7,8 +7,8 @@ class Solution:
             return 1
         return self.climbStairs(n-2)+self.climbStairs(n-1)
 
-# Recursive Solution
-# TC: O(2^n)
+# DP Solution(Top Down)
+# TC: O(n)
 # SC: O(n)+O(n), recursive stack + dp array
 class Solution:
     def climbStairs(self, n: int) -> int:
@@ -26,7 +26,7 @@ class Solution:
         return dp[n]
 
 
-# Recursive Solution
+# DP Solution(Bottom Up)
 # TC: O(n)
 # SC: O(n), dp array/list
 class Solution:
@@ -39,7 +39,7 @@ class Solution:
             dp[index]=dp[index-2]+dp[index-1]
         return dp[n]        
 
-# Recursive Solution
+# DP Solution(Bottom Up with space optimization)
 # TC: O(n)
 # SC: O(1)
 class Solution:
