@@ -41,7 +41,7 @@ class Solution:
         dp=[0]*(len(nums))
         dp[0],dp[1]=nums[0],max(nums[0],nums[1])
         for index in range(2,len(nums)):
-            dp[index]=max(nums[index]++dp[index-2],dp[index-1])
+            dp[index]=max(nums[index]+dp[index-2],dp[index-1])
         return dp[-1]
 
 # Dynamic Programming: Space Optimization
