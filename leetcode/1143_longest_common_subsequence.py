@@ -50,7 +50,7 @@ class Solution:
 
 # DP: Space optimization
 # TC: O(mn)
-# SC: (m+m),prev and curr arrays
+# SC: (m+n),prev and curr arrays
 class Solution:
     def longestCommonSubsequence(self, text1: str, text2: str) -> int:
         n,m=len(text1),len(text2)

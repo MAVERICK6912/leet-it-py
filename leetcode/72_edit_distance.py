@@ -74,10 +74,11 @@ class Solution:
     def minDistance(self, w1: str, w2: str) -> int:
         n,m=len(w1),len(w2)
         dp=[[0]*(m+1) for _ in range(n+1)]
-
+        
+        # initial condition
         for index in range(1,n+1):
             dp[index][0]=index
-
+        # initial condition
         for index in range(1,m+1):
             dp[0][index]=index
 
@@ -106,6 +107,7 @@ class Solution:
             prev[index]=index
 
         for i in range(1,n+1):
+            # initial condition
             curr[0]=i
             for j in range(1,m+1):
                 # if chars are same we will get the solution from left diagonal element
