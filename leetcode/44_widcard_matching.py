@@ -80,7 +80,7 @@ class Solution:
         dp[s_pointer][p_pointer]= False
         return dp[s_pointer][p_pointer]
 
-# DP: Top Down
+# DP: Bottom Up
 # TC: O(nm)
 # SC: O(n*m), dp array
 class Solution:
