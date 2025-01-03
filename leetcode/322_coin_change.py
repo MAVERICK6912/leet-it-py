@@ -3,17 +3,32 @@
 # SC: O(n)
 class Solution:
     def coinChange(self, coins: List[int], amount: int) -> int:
-        res=self.find_change(0,amount,coins)
-        return res if res!=float('inf') else -1
-    def find_change(self,index,amount:int,coins:List[int]):
+        if amount ==0:
+            return 0
+        res=self.calculateChange(0,amount,coins)
+        print(res)
+        return -1 if res==inf else res
+    def calculateChange(self,index,amount:int,coins):
+        # base case
+        # we cant find anymore change if amount is zero
         if amount==0:
             return 0
+        # out of bounds
+        # means we could not find change
         if index>=len(coins):
-            return float('inf')
+            return inf
+        # if currency is lesser than or equal to amount
+        # then we can use that currency or choose not to pick it
         if coins[index]<=amount:
-            return min(1+ self.find_change(index,amount-coins[index],coins),self.find_change(index+1,amount,coins))
+            # include currency at index
+            include=1+self.calculateChange(index,amount-coins[index],coins)
+            # exclude currency at index in search of better solution
+            exclude=self.calculateChange(index+1,amount,coins)
+            return min(include,exclude)
         else:
-            return self.find_change(index+1,amount,coins)
+            # since we can't use currency at index
+            # go to next currency and check
+            return self.calculateChange(index+1,amount,coins)
 
 # DP: Top Down
 # TC: O(n!)
